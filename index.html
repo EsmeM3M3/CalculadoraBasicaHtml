@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calvuladora</title>
+    <!--llamos al css-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: black;">
+    <div id="calcu" class="caja" style="color: rgb(31, 21, 10);">
+        <div class="texto">
+            <input type="text" class="display" id="display" disabled>
+            <div class="botones">
+                <button class="button" onclick="appendNumber('1')">1</button>
+                <button class="button" onclick="appendNumber('2')">2</button>
+                <button class="button" onclick="appendNumber('3')">3</button>
+                <button class="button" onclick="appendNumber('+')">+</button>
+                <button class="button" onclick="appendNumber('4')">4</button>
+                <button class="button" onclick="appendNumber('5')">5</button>
+                <button class="button" onclick="appendNumber('6')">6</button>
+                <button class="button" onclick="appendNumber('-')">-</button>
+                <button class="button" onclick="appendNumber('7')">7</button>
+                <button class="button" onclick="appendNumber('8')">8</button>
+                <button class="button" onclick="appendNumber('9')">9</button>
+                <button class="button" onclick="appendNumber('*')">*</button>
+                <button class="button" onclick="appendNumber('0')">0</button>
+                <button class="button" onclick="appendNumber('/')">/</button>
+                <button class="button" onclick="appendNumber('.')">.</button>
+                <button class="button" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function appendNumber(number) {
+            const display = document.getElementById('display');
+            display.value += number;
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
